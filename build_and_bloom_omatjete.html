@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Build & Bloom Enterprises – A family-run business in Omatjete, Namibia. We build affordable homes and grow fresh, local food so our community thrives without traveling 80km for basics.">
+    <title>Build & Bloom Enterprises – Omatjete, Namibia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e67e22; /* Warm orange – earth, soil, Namibian sun */
+            --accent: #27ae60;     /* Green – growth, gardens, hope */
+            --light: #f9f6f0;      /* Soft sand tone */
+            --dark: #1a1a1a;
+            --text: #333;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(230, 126, 34, 0.85)), url('https://placehold.co/1920x1080/e67e22/ffffff?text=Omatjete+Build+%26+Bloom') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--accent);
+            margin: 8px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #555;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .service-card.bloom-card {
+            border-top-color: var(--accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 18px;
+        }
+
+        .build-icon { color: var(--secondary); }
+        .bloom-icon { color: var(--accent); }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        /* About */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .contact .section-title h2,
+        .contact .section-title p {
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #ddd;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #bbb;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .hero { height: auto; padding: 100px 0; margin-top: 70px; }
+            .btn { display: block; width: 80%; margin: 10px auto !important; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.9rem; }
+            .section-title h2 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                BUILD & BLOOM
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Growing Homes, Growing Hope</h1>
+            <p>In Omatjete, no one should travel 80km for fresh onions or a sturdy roof. We build dignity — one home and one harvest at a time.</p>
+            <div>
+                <a href="#services" class="btn">See Our Services</a>
+                <a href="#contact" class="btn btn-outline">Work With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Two Pillars</h2>
+                <p>Family-run. Community-rooted. Built for Omatjete.</p>
+            </div>
+            <div class="services-grid">
+                <!-- BUILD -->
+                <div class="service-card">
+                    <div class="service-icon build-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Build: Shelter for Omatjete</h3>
+                    <p>Affordable homes, storage sheds, fences & roof repairs using local stone, clay bricks.</p>
+                    <p><strong>Pricing:</strong> N$150–250/hour labor (you supply materials)</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon build-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Renovations & Repairs</h3>
+                    <p>Fix leaking roofs, cracked walls, or broken floors — quickly and fairly priced.</p>
+                    <p><strong>Payment:</strong> 30% upfront, 40% mid-way, 30% on completion</p>
+                </div>
+
+                <!-- BLOOM -->
+                <div class="service-card bloom-card">
+                    <div class="service-icon bloom-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Bloom: Food for Omatjete</h3>
+                    <p>Fresh spinach, onions, tomatoes, chili peppers & indigenous greens — grown right here.</p>
+                    <p><strong>From N$15/bag</strong> — cheaper than Omaruru when you count fuel!</p>
+                </div>
+
+                <div class="service-card bloom-card">
+                    <div class="service-icon bloom-icon">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h3>Local Produce Delivery</h3>
+                    <p>Door-to-door or pickup at our neighborhood stall. All labeled: <em>“From Omatjete’s Soil”</em>.</p>
+                    <p>Weekly orders welcome!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Family, Our Legacy</h2>
+                    <p>We’re not an outside company — we’re your neighbors. Our kids play with yours. Our home is here.</p>
+                    <p><strong>How we work:</strong></p>
+                    <ul style="padding-left: 20px; margin: 15px 0;">
+                        <li>Train local youth as apprentices</li>
+                        <li>Use rainwater harvesting & drip irrigation</li>
+                        <li>Save 50% of profits to buy land in Omatjete</li>
+                        <li>Keep a family journal of every milestone</li>
+                    </ul>
+                    <p>We believe in <strong>no debt, no loans</strong> — just honest work, fair prices, and growing together.</p>
+                    <p><em>“You’re not just building a business. You’re building Omatjete’s future.”</em></p>
+                </div>
+                <div class="about-image">
+                    <img src="https://placehold.co/600x400/27ae60/ffffff?text=Family+in+Omatjete+Garden" alt="Build & Bloom Family in Omatjete">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let’s Grow Together</h2>
+                <p>Need a roof fixed? Want fresh spinach this week? Reach out — we’re just down the road.</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone (WhatsApp preferred)</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">What do you need?</label>
+                        <textarea id="message" name="message" placeholder="e.g., 'Fix my roof', 'Order 5kg onions', 'Join as apprentice'"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width:100%; background: var(--secondary); border-color: var(--secondary);">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Build & Bloom Enterprises</h3>
+                    <p>Omatjete, Namibia<br>
+                    Family-owned since 2025<br>
+                    Growing homes. Growing hope.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">Our Story</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Find Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Omatjete Village, Erongo Region</p>
+                    <p><i class="fas fa-phone"></i> +264 81 3010 214</p>
+                    <p><i class="fas fa-envelope"></i> buildandbloomomatjete@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Build & Bloom Enterprises – Omatjete, Namibia. Family. Community. Legacy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form alert
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you! A family member will contact you soon via WhatsApp.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
